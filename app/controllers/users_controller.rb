@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  http_basic_authenticate_with name: "pxjoke", password: "67829516", except: [:index, :show]
   def new
     @user = User.new
   end
