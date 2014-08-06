@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h1><%= @user.name %> : <i><%= @user.money %> $</i></h1>
+</div>  
+ 
+<%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+  
+  <div class="input-prepend">
+  <span class="add-on">$</span>
+  <%= text_field_tag :spend,"", :class => 'span2' %>
+</div>
+
+ 
+ 
+  
+ 
+  <p>
+    <%= submit_tag "Spend", class: "btn btn-danger" %>
+  </p>
+<% end %>
+ 
+<%= link_to 'Back', users_path %>

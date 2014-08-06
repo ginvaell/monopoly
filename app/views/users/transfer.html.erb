@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1><%= @user.name %> : <i><%= @user.money %> $</i></h1>
+</div>  
+<%= form_for :user, url: user_path(@user), method: :patch do |f| %>
+
+
+
+ <div class="input-prepend">
+  <span class="add-on">$</span>
+ <%= text_field_tag :transfer_count, "", :class => 'span2' %>
+ 
+ </div>
+ <%= select_tag :transfer_to, options_from_collection_for_select(@users, "id", "name") %>
+  <p>
+    <%= submit_tag "Transfer", class: "btn btn-success" %>
+  </p>
+<% end %>
+ 
+
+<%= link_to 'Back', users_path %>

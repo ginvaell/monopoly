@@ -1,0 +1,25 @@
+
+<div class="page-header">
+  <h1>Users <small>Monopoly</small></h1>
+</div>  
+
+
+<table class="table table-striped table-bordered index-tab">
+  <tr>
+    <th>Name</th>
+    <th>Money</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+ 
+<% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, user %></td>
+    <td> <i><b><%= user.money %> $ </b></i></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user_path(user),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to "New User", new_user_path %>
